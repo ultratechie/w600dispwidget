@@ -1,5 +1,5 @@
 # W600 plus SSD1306 OLED display widget demo
-# Fetch feed from Adafruit IO (AIO) and display on display
+# Fetch feed from Adafruit IO (AIO) and display on SSD1306 OLED
 
 from easyw600 import *
 import ssd1306
@@ -13,12 +13,12 @@ WIFI_SSID = "YOUR_WIFI_SSID"
 WIFI_PASSWORD = "YOUR_WIFI_PASSWORD"
 
 # Adafruit AIO credentials
-AIO_KEY = "your_aoi_key"
+AIO_KEY = "your_aio_key"
 # replace with your AIO feed URL
 AIO_FEED_URL = "http://io.adafruit.com/api/v2/ultratechie/groups/homemonitor?X-AIO-Key=" + AIO_KEY 
 TIME_URL = "http://worldtimeapi.org/api/timezone/Europe/London"
 
-# how often is the feed updated on the LCD display
+# how often is the feed updated on the OLED display
 FEED_UPDATE_DELAY_SECS = 10
 
 # SPI pin settings
@@ -41,6 +41,7 @@ ssd.show()
 
 # connect to Wifi
 sta_if =connect(WIFI_SSID,WIFI_PASSWORD)
+# start FTP servier if required
 #ftpserver()
 
 ssd.fill(0) 
